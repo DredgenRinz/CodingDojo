@@ -1,0 +1,49 @@
+ej1:
+function mayorque (x, y){
+	var cont = 0;
+	for(var i=0; i < x.length; i++){
+		if(x[i] > y){
+			cont++;
+		}
+	}
+	console.log("Hay " + cont + " valores mayores que Y");
+}
+
+ej2:
+function maxminavg (x){
+	var max = 0;
+	var min = 0;
+	var avg = 0;
+	for(var i=0; i < x.length; i++){
+		if(x[i] > max){
+			max = x[i];
+		}
+		if(x[i] < min){
+			min = x[i];
+		}
+		avg+= x[i];
+	}
+	avg /= x.length;
+	console.log("El mayor es " + max + ", el mínimo es " + min + " y el promedio es " + avg + ".");
+}
+
+ej3:
+function dojoinzero (x){
+	for(var i=0; i < x.length; i++){
+		if(x[i] < 0){
+			x[i] = "Dojo";
+		}
+	}
+	return x;
+}
+
+ej4:
+function deleteinarray(x, y, z){
+	var temp = [];
+	for(var i=0; i < x.length; i++){
+		if(i < y || i > z ){
+			temp.push(x[i]);
+		}
+	}
+	return temp;
+}

@@ -1,0 +1,86 @@
+/*CSS reset settings here*/
+*{
+ margin: 10px;
+ padding: 0px;
+}
+@media only screen and (max-width: 480px) {
+     /* we will set these stylings only if the device is a screen with a width of 480px or less */
+    .tablet{display: none;}
+	.phone{width: 100%;}
+	#portable{display:none;}
+	.sm-8{width:75%;}
+}
+/* For mobile phones: */
+[class*="col-"] {
+  width: 98%;
+}
+
+@media only screen and (min-width: 481px) and (max-width: 1023px) {
+  /* For tablets: */
+  .col-s-1 {width: 8.33%;}
+  .col-s-2 {width: 16.66%;}
+  .col-s-3 {width: 25%;}
+  .col-s-4 {width: 33.33%;}
+  .col-s-5 {width: 41.66%;}
+  .col-s-6 {width: 50%;}
+  .col-s-7 {width: 58.33%;}
+  .col-s-8 {width: 66.66%;}
+  .col-s-9 {width: 75%;}
+  .col-s-10 {width: 83.33%;}
+  .col-s-11 {width: 91.66%;}
+  .col-s-12 {width: 100%;}
+  .tablet{width: 99%;}
+  #portable{display:none;}
+}
+
+@media only screen and (min-width: 1024px) {
+  /* For desktop: */
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+  .desktop:{width:99%;}
+  #portable{width: 20%;}
+}
+#wrapper{
+ background-color: silver;
+ margin: auto;
+ padding-top: 10px;
+}
+#header{
+	min-height: 150px;
+	background-color: green;
+	padding-top: 10px;
+}
+.navigation{
+ min-height: 300px;
+ width: 200px;
+ background-color: blue;
+ display: inline-block
+}
+.main_content{
+ min-height: 400px;
+ background-color: red;
+ display: inline-block;
+ vertical-align: top;
+ margin: 5px;
+}
+.subcontents{
+ min-height: 200px;
+ max-width: 360px;
+ background-color: yellow;
+ display: inline-block
+}
+#advertisement{
+ min-height: 125px;
+ background-color: purple;
+ margin: 5px;
+}

@@ -1,0 +1,71 @@
+ej1:
+5
+
+ej2:
+[2,2,5]
+[2,2,5]
+[6,8,5]
+[6,8,5]
+
+ej3:
+[2,2,5]
+
+ej4:
+true
+
+ej5:
+["Coding","Coding","Coding","Coding"]
+
+ej6:
+[5,"Coding","Dojo",4]
+
+ej7:
+10
+
+ej8:
+
+PART2
+
+ej1:
+function printAverage(x){
+   sum = 0;
+   for(var i=0; i < x.length; i++){
+	   sum += x[i];
+   }
+   sum /= x.length;
+   return sum;
+   
+}
+y = printAverage([1,2,3]);
+console.log(y); // should log 2
+  
+y = printAverage([2,5,8]);
+console.log(y); // should log 5
+
+ej2:
+function returnOddArray(){
+   var odd = [];
+   for(var i=0; i < 256; i++){
+		if(i % 2 != 0){
+			odd.push(i);
+		}
+   }
+	return odd;
+}
+y = returnOddArray();
+console.log(y); // should log [1,3,5,...,253,255]
+
+ej3:
+function squareValue(x){
+	for(var i=0; i < x.length; i++){
+		x[i] *= x[i]; 
+	}
+   return x;
+}
+y = squareValue([1,2,3]);
+console.log(y); // should log [1,4,9]
+  
+y = squareValue([2,5,8]);
+console.log(y); // should log [4,25,64]
+
+

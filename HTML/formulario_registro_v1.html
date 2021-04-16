@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Prueba Formulario</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <h1 style="margin-top: 50px; margin-left: 50px; float: left">Mi formulario de registro</h1>
+	<br>
+    <form style="margin-top: 100px; margin-left: 50px" action="null" method="get">
+		<br>
+        <label>Nombre: </label>
+		<input style="margin-left: 15px" type="text" name="nombre"/> <br><br>
+		
+        Apellido: 
+		<input style="margin-left: 15px" type="text" name="apellido"/> <br><br>
+		
+        Email: 
+		<input style="margin-left: 30px" type="email" name="email"/> <br><br>
+		
+		Contraseña: 
+		<input type="password" name="password"/> <br><br>
+		
+		Confirmar: 
+		<input style="margin-left: 5px" type="password" name="password2"/> <br><br>
+		
+		Cumpleaños: 
+		<input type="date" name="version"/> <i class="fa fa-calendar"></i> <br><br>
+		
+		<br>
+		<input type="radio" name="gender" value="m">
+		<label for="male">Hombre</label>
+		<input type="radio" name="gender" value="f">
+		<label for="female">Mujer</label>
+		<input type="radio" name="gender" value="o">
+		<label for="other">Otro</label><br>
+		
+		Una breve descripción de ti:<br>
+		<textarea id="texto" name="selfinfo" rows="4" cols="50"> </textarea><br><br>
+		
+		<label for="cars">Lenguaje Favorito:</label>
+		<select id="cars" name="cars">
+		  <option value="js">JavaScript</option>
+		  <option value="php">PHP</option>
+		  <option value="html">HTML</option>
+		  <option value="java">JAVA</option>
+		</select> <br><br>
+		
+        <input style="margin-left: 5px"type="submit" value="Enviar">
+    </form>
+</body>
+</html>

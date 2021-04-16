@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<tittle>NinjaManV2</tittle>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.row {
+			line-height: 0;
+		}
+		.wall {
+			background-color: blue;
+			height: 90px;
+			width: 90px;
+			display: inline-block;
+		} 
+		.suchi {
+			background-color: black;
+			height: 90px;
+			width: 90px;
+			display: inline-block;
+			background-image: url('img/sushi.png');
+			background-size: contains;
+		}
+		.blank{
+			background-color: grey;
+			height: 90px;
+			width: 90px;
+			display: inline-block
+		}
+		
+		
+	</style>
+</head>
+<body>
+	
+	<div id='world'></div>
+    <div id="character" style="width: 59px; height: 86px; background-image: url('img/down1.png'); position: absolute; left: 150px; top: 150px;"></div>  
+
+	
+    <script type="text/javascript">
+            var leftValue = 150;
+            var topValue = 150;
+            var walkValue = 1;
+            document.onkeydown = function(e){
+                console.log(e);
+                if (walkValue == 1){
+                    walkValue = 2;
+                }
+                else if (walkValue == 2){
+                    walkValue = 1;
+                }
+                if(e.keyCode == 37 && leftValue > 0){
+                    // Left
+                    leftValue = leftValue - 25;
+                    document.getElementById("character").style.left = leftValue+"px";
+                    document.getElementById("character").style.backgroundImage = "url('img/left"+walkValue+".png')";
+                }
+                else if (e.keyCode == 39 && leftValue < 1280){
+                    // Right
+                    leftValue = leftValue + 25;
+                    document.getElementById("character").style.left = leftValue+"px";
+                    document.getElementById("character").style.backgroundImage = "url('img/right"+walkValue+".png')";
+                }
+                else if (e.keyCode == 38 && topValue > 0){
+                    // Top
+                    topValue = topValue - 25;
+                    document.getElementById("character").style.top = topValue+"px";
+					document.getElementById("character").style.backgroundImage = "url('img/top"+walkValue+".png')";
+                }
+                else if (e.keyCode == 40 && topValue < 720){
+                    // Bottom
+                    topValue = topValue + 25;
+                    document.getElementById("character").style.top = topValue+"px";
+					document.getElementById("character").style.backgroundImage = "url('img/down"+walkValue+".png')";
+                }
+            }
+			
+			var world = [
+			[1,1,1,1,1,1],
+			[1,0,0,0,0,1],
+			[1,0,0,0,0,1],
+			[1,0,0,0,0,1],
+			[1,2,0,0,0,1],
+			[1,1,1,1,1,1]
+			];
+			
+			var worldDic = {
+				0: 'blank',
+				1: 'wall',
+				2: 'suchi'
+			}
+			
+			function drawWorld(){
+				output = "";
+				
+				for(var row = 0; row < world.length; row++){
+					output += "<div class ='row'>"
+					for(var x = 0; x < world[row].length; x++){
+						output += "<div class = '" + worldDic[world[row][x]] +"'></div>"
+					}
+					output +="</div>"				
+				}
+				
+				document.getElementById( 'world' ).innerHTML = output;
+				
+			}
+		</script>
+		
+	    var leftValue = 450, topValue = 100;
+
+    	function update(){
+    		document.getElementById("character").style.left = leftValue+"px";
+    		document.getElementById("character").style.top = topValue+"px";
+    	}
+
+    	document.onkeydown = function(e){
+    		console.log(e);
+    		if(e.keyCode == 37 && leftValue > 0) { // LEFT
+    			leftValue = leftValue - 10;
+    		}
+			else if (e.keyCode == 38 && topValue > 0) { // UP
+    			topValue = topValue - 10;    		
+    		}
+    		else if (e.keyCode == 39 && leftValue < 500) { // RIGHT
+    			leftValue = leftValue + 10;    		
+    		}
+    		else if (e.keyCode == 40 && topValue < 500) { // DOWN
+				topValue = topValue + 10;
+    		}
+    		// ...
+    		update();
+    	}
+    </script>
+</body>
+</html>
