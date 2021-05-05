@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9a536c3d-f934-494f-99bb-17e3fac980d8" name="Default Changelist" comment="">
+    <list default="true" id="6e2b4e5a-4b4b-47c1-81b2-edbb4ad1f5e7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/Formulario JS.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../CSS/Bootstrap/Bloques con Bootstrap.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../CSS/CSS&amp;CSS3/Bootstrap.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../CSS/CSS&amp;CSS3/CSS BLOCKS.zip" beforeDir="false" />
@@ -15,6 +20,7 @@
       <change beforePath="$PROJECT_DIR$/../../CSS/CSS&amp;CSS3/The Internet.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../HTML/ninja-game-2.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Fundamentos Intermedios.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jasmine/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../jasmine/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,47 +30,35 @@
   <component name="ComposerSettings">
     <execution />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="JavaScript File" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="PackageJsonUpdateNotifier">
-    <dismissed value="$PROJECT_DIR$/package.json" />
+  <component name="ProjectId" id="1raej0FCUL8mw9hCGbKzr1yJJVX" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="ProjectId" id="1rERL6qBLSsXUERtOOOWHtXGC5o" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="javascript.nodejs.core.library.configured.version" value="14.12.0" />
-    <property name="javascript.nodejs.core.library.typings.version" value="14.14.41" />
-    <property name="nodejs_interpreter_path" value="node" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
+    <property name="settings.editor.selected.configurable" value="terminal" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="9a536c3d-f934-494f-99bb-17e3fac980d8" name="Default Changelist" comment="" />
-      <created>1618539205898</created>
+      <changelist id="6e2b4e5a-4b4b-47c1-81b2-edbb4ad1f5e7" name="Default Changelist" comment="" />
+      <created>1619218758829</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1618539205898</updated>
-      <workItem from="1618539207430" duration="960000" />
-      <workItem from="1618613545650" duration="1357000" />
-      <workItem from="1619218739130" duration="7000" />
+      <updated>1619218758829</updated>
+      <workItem from="1619218760176" duration="3421000" />
     </task>
     <servers />
   </component>
@@ -81,6 +75,8 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

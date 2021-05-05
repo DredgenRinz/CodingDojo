@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pacman Demo</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+ 	<div id='container'>
+ 		<div id='world'></div>
+ 		<div id='pacman'></div>
+		<div id='mspacman'></div>
+ 		<div id='score'>0</div>
+		<div id='ghostOne'></div>
+		<div id='ghostTwo'></div>
+		<div id='ghostThree'></div>
+ 	</div>
+
+	List of features to build
+	1) Have JS display the world of brick/coin/empty/etc. - DONE.
+	2) Have the pacmman move up and down
+
+	<script type="text/javascript">
+	var world = [
+		[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+		[2,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],
+		[2,1,2,2,2,0,2,2,2,2,2,2,0,2,2,1,2,1,2,1,2,2,2,2,2,2,1,2,1,2,2,2,2,2,1,2,1,2],
+		[2,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,2,1,2,1,1,1,1,1,2,1,2,1,2],
+		[2,1,2,1,2,1,2,1,2,1,2,1,2,2,2,2,2,1,2,1,2,1,2,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2],
+		[2,1,2,1,2,1,2,1,2,1,1,2,2,1,1,1,1,1,1,1,1,1,1,1,1,2,1,2,1,2,1,2,1,0,1,0,1,2],
+		[0,0,1,1,2,1,2,1,1,2,1,2,2,1,2,2,2,2,1,2,2,2,2,2,1,1,1,1,1,2,1,2,1,2,1,2,1,0],
+		[0,0,1,1,1,1,2,2,1,1,1,2,2,1,2,1,1,1,0,1,1,1,1,1,1,2,2,2,2,2,1,2,1,1,1,2,1,0],
+		[0,0,0,1,2,1,2,3,2,2,1,2,1,1,2,1,2,2,2,2,2,1,2,2,2,1,1,1,1,1,1,3,2,2,1,2,1,0],
+		[2,1,2,1,2,1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,2,1,1,1,1,1,2],
+		[2,1,2,1,2,2,2,2,2,2,0,2,2,2,2,2,2,2,1,2,2,2,2,2,2,2,2,2,2,2,0,2,2,2,2,2,1,2],
+		[2,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,2],
+		[2,1,2,2,2,2,2,2,2,2,1,2,2,2,2,1,2,2,2,2,2,1,2,2,2,2,2,2,2,2,0,2,2,2,2,2,1,2],
+		[2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,0,0,0,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],
+		[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]
+	];
+	var score = 0;
+
+	var pacman = {
+		x: 18,
+		y: 7,
+		lives: 2
+	}
+	var mspacman = {
+		x: 18,
+		y: 7,
+		lives: 2,
+		release: false
+	}
+	var ghostOne = {
+		x: 18,
+		y: 13
+	}
+	var ghostTwo = {
+		x: 17,
+		y: 13
+	}
+	var ghostThree = {
+		x: 19,
+		y: 13
+	}
+	var seconds  = 0;
+	function displayWorld(){
+		var output = '';
+
+		for(var i=0; i<world.length; i++){
+			output += "\n<div class='row'>\n";
+			for(var j=0; j<world[i].length; j++){
+				if(world[i][j] == 2)
+					output += "<div class='brick'></div>";
+				else if(world[i][j] == 1)
+					output += "<div class='coin'></div>";
+				else if(world[i][j] == 3)
+					output += "<div class='cherry'></div>";
+				else if(world[i][j] == 0)
+					output += "<div class='empty'></div>";
+			}
+			output += "\n</div>";
+		}
+		document.getElementById('world').innerHTML = output;
+	}
+
+	function displayPacman(){
+		document.getElementById('pacman').style.top = pacman.y*20+"px";
+		document.getElementById('pacman').style.left = pacman.x*20+"px";
+	}
+	function displayMsPacman(){
+		document.getElementById('mspacman').style.top = mspacman.y*20+"px";
+		document.getElementById('mspacman').style.left = mspacman.x*20+"px";
+	}
+	function createGhosts(){
+		document.getElementById('ghostOne').style.top = ghostOne.y*20+"px";
+		document.getElementById('ghostOne').style.left = ghostOne.x*20+"px";
+		document.getElementById('ghostTwo').style.top = ghostTwo.y*20+"px";
+		document.getElementById('ghostTwo').style.left = ghostTwo.x*20+"px";
+		document.getElementById('ghostThree').style.top = ghostThree.y*20+"px";
+		document.getElementById('ghostThree').style.left = ghostThree.x*20+"px";
+		
+	}
+	function displayGhostOne(){
+		document.getElementById('ghostOne').style.top = ghostOne.y*20+"px";
+		document.getElementById('ghostOne').style.left = ghostOne.x*20+"px";
+	}
+
+	function displayScore(){
+		document.getElementById('score').innerHTML = score;
+	}
+	function checkScore(){
+		if(score >= 2820){
+			alert("YOU ARE THE WINNER");
+			document.location.reload();
+		}
+	}
+	function releaseTheGhost(){
+		if(seconds==3){
+			ghostOne.y = 11;
+			displayGhostOne();
+		}
+		if(seconds > 3){
+			moveGhostOne();
+		}
+		seconds+=0.5;
+	}
+	
+	function moveGhostOne(){
+		var lock = true;
+		while (lock){
+			var moveTo = Math.floor(Math.random() * 4) +1;
+			
+			switch (moveTo) {
+				case 1:
+					if(world[ghostOne.y+1][ghostOne.x] != 2){
+						ghostOne.y = ghostOne.y + 1;
+						displayGhostOne();
+						lock = false;
+					}			
+					break;
+				case 2:
+					if(world[ghostOne.y][ghostOne.x+1] != 2 && pacman.x == world[0].length-1){
+						ghostOne.x = 0;
+						displayGhostOne();
+						lock = false;
+					}else if(world[ghostOne.y][ghostOne.x+1] != 2){
+						ghostOne.x = ghostOne.x + 1;
+						displayGhostOne();
+						lock = false;
+					}
+				
+					break;
+				case 3:
+					if(world[ghostOne.y-1][ghostOne.x] != 2){
+						ghostOne.y = ghostOne.y - 1;
+						displayGhostOne();
+						lock = false;
+					}
+				
+					break;
+				case 4:
+					if(world[ghostOne.y][ghostOne.x-1] != 2 && ghostOne.x == 0){
+						ghostOne.x = world[0].length-1;
+						displayGhostOne();
+						lock = false;
+					}else if(world[ghostOne.y][ghostOne.x-1] != 2){
+						ghostOne.x = ghostOne.x - 1;
+						displayGhostOne();
+						lock = false;
+					}
+				
+					break;
+					
+				default:
+					
+			}
+		}
+		crash();
+		displayPacman();
+	}
+	
+	function crash(){
+		if(pacman.x == ghostOne.x && pacman.y == ghostOne.y){
+			pacman.lives--;
+			pacman.x = 18;
+			pacman.y = 7;
+		}
+		if(mspacman.x == ghostOne.x && mspacman.y == ghostOne.y){
+			mspacman.lives--;
+			mspacman.x = 18;
+			mspacman.y = 7;
+		}
+		if(pacman.lives == 0){
+			document.getElementById('pacman').style.display = 'none';
+			pacman.x = 99;
+			pacman.y = 99;
+		}
+		if(mspacman.lives == 0){
+			document.getElementById('mspacman').style.display = 'none';
+			mspacman.x = 99;
+			mspacman.y = 99;
+		}
+		if(pacman.lives == 0 && (mspacman.lives == 0 || mspacman.release)){
+			alert("GAME OVER");
+			document.location.reload();
+		}
+	
+	}
+
+	var counter = setInterval(releaseTheGhost, 500);
+
+	displayWorld();
+	displayPacman();
+	createGhosts();
+	displayScore();
+
+	document.onkeydown = function(e){
+		if(pacman.lives > 0){
+			if(e.keyCode == 37 && world[pacman.y][pacman.x-1] != 2 && pacman.x == 0){
+				document.getElementById('pacman').style.transform = "rotate(-180deg)";
+				pacman.x = world[0].length-1;
+			}
+			else if(e.keyCode == 37 && world[pacman.y][pacman.x-1] != 2 && pacman.x > 0){
+				document.getElementById('pacman').style.transform = "rotate(-180deg)";
+				pacman.x--;
+			}
+			else if(e.keyCode == 39 && world[pacman.y][pacman.x+1] != 2 && pacman.x == world[0].length-1){
+				document.getElementById('pacman').style.transform = "none";
+				pacman.x = 0;
+			}
+			else if(e.keyCode == 39 && world[pacman.y][pacman.x+1] != 2){
+				document.getElementById('pacman').style.transform = "none";
+				pacman.x++;
+			}
+			else if(e.keyCode == 38 && world[pacman.y-1][pacman.x] != 2 && pacman.y > 0){
+				document.getElementById('pacman').style.transform = "rotate(-90deg)";
+				pacman.y--;
+			}
+			else if(e.keyCode == 40 && world[pacman.y+1][pacman.x] != 2){
+				document.getElementById('pacman').style.transform = "rotate(90deg)";
+				pacman.y++;
+			}
+			if (world[pacman.y][pacman.x] == 1) {
+				world[pacman.y][pacman.x] = 0;
+				score+=10;
+				checkScore();
+				displayWorld();
+				displayScore();
+			}
+			else if (world[pacman.y][pacman.x] == 3) {
+				world[pacman.y][pacman.x] = 0;
+				score+=50;
+				displayWorld();
+				displayScore();
+			}
+			crash();
+			displayPacman();
+		}
+		
+		if((mspacman.lives > 0 || mspacman.release == false) && (e.keyCode == 65 || e.keyCode == 68 || e.keyCode == 83 || e.keyCode == 87)){
+			if(document.getElementById('mspacman').style.display == 'none' && mspacman.lives == 2){
+				document.getElementById('mspacman').style.display = 'block';
+				mspacman.release = true;
+			}
+			if(e.keyCode == 65 && world[mspacman.y][mspacman.x-1] != 2 && mspacman.x == 0){
+				document.getElementById('mspacman').style.transform = "rotate(-180deg)";
+				mspacman.x = world[0].length-1;
+			}
+			else if(e.keyCode == 65 && world[mspacman.y][mspacman.x-1] != 2 && mspacman.x > 0){
+				document.getElementById('mspacman').style.transform = "scaleX(-1)";
+				mspacman.x--;
+			}
+			else if(e.keyCode == 68 && world[mspacman.y][mspacman.x+1] != 2 && mspacman.x == world[0].length-1){
+				document.getElementById('mspacman').style.transform = "none";
+				mspacman.x = 0;
+			}
+			else if(e.keyCode == 68 && world[mspacman.y][mspacman.x+1] != 2){
+				document.getElementById('mspacman').style.transform = "none";
+				mspacman.x++;
+			}
+			else if(e.keyCode == 87 && world[mspacman.y-1][mspacman.x] != 2 && mspacman.y > 0){
+				document.getElementById('mspacman').style.transform = "rotate(-90deg)";
+				mspacman.y--;
+			}
+			else if(e.keyCode == 83 && world[mspacman.y+1][mspacman.x] != 2){
+				document.getElementById('mspacman').style.transform = "rotate(90deg)";
+				mspacman.y++;
+			}
+
+			if (world[mspacman.y][mspacman.x] == 1) {
+				world[mspacman.y][mspacman.x] = 0;
+				score+=10;
+				checkScore();
+				displayWorld();
+				displayScore();
+			}
+			else if (world[mspacman.y][mspacman.x] == 3) {
+				world[mspacman.y][mspacman.x] = 0;
+				score+=50;
+				displayWorld();
+				displayScore();
+			}
+			crash();
+			displayMsPacman();
+		}
+		
+	}
+
+	</script>
+
+</body>
+</html>
