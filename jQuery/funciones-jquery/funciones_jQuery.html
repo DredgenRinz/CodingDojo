@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Position Practice</title>
+	    <!-- Etiquetas meta requeridas -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+		<!-- Etiquetas meta de JavaScript Opcionales-->
+		<!-- Primero jQuery, luego Popper.js, y por último Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script>
+			$(document).ready(function(){
+			//adjunta un "click event listener" a todas las etiquetas img cuando el documento esté listo
+				$('button').click(function(){
+					var classes = $(this).attr('id');
+					switch(classes){
+						case 'hmc':
+							console.log('Estas en hmc');
+							$('.bg-warning').hide();
+							break;
+						case 'smc':
+							$('.bg-warning').show();
+							console.log('Estas en smc');
+							break;
+						case 'tf':
+							$('.bg-success').toggle();
+							console.log('Estas en tf');
+							break;
+						case 'fia':
+							$('#art1').fadeIn();
+							console.log('Estas en fia');
+							break;
+						case 'foa':
+							$('#art1').fadeOut();
+							console.log('Estas en foa');
+							break;
+						case 'fta':
+							$('#art2').fadeToggle();
+							console.log('Estas en foa');
+							break;
+						case 'ce':
+							$('button').removeClass('btn-primary');
+							$('button').addClass('btn-danger');
+							$('.bg-success').before('<div class="col m-2 p-3 bg-danger removable"> ERROR </div>');
+							$('.bg-success').after('<div class="col m-2 p-3 bg-danger removable"> ERROR </div>');
+							$('.bg-white').append('<div class="col bg-danger m-1 p-5 removable"> ERROR </div> ');
+							$('#art1').text( $(this).html() );
+							console.log('Estas en ce');
+							break;
+						case 'uce':
+							$('button').removeClass('btn-danger');
+							$('button').addClass('btn-primary');
+							$('.removable').hide();
+							$('#art1').text( $('#art2').val() );
+						
+							break;
+						default:
+							console.log('Estas en default');
+					
+					}
+				
+				});
+			});
+		</script>
+   </head>
+   <body>
+		<div class="container-fluid">
+			<div class="row col-auto bg-dark text-light m-2 p-4 justify-content-md-center">
+				<div class="col-4 bg-info text-center m-3">
+					<div>Prueba botones jQuery</div>
+				</div>
+			</div>
+			<div class="row w-100 m-0">
+				<div style="height:300px" class="col-4 bg-info m-2 text-light text-center p-5">
+				Botones:
+				<br>
+				<button type="button" class="btn btn-primary" id="hmc">Hide Main Content</button>
+				<button type="button" class="btn btn-primary" id="smc">Show Main Content</button>
+				<button type="button" class="btn btn-primary" id="tf">Toggle Footer</button>
+				<button type="button" class="btn btn-primary" id="fia">fadeIn Article 1</button>
+				<button type="button" class="btn btn-primary" id="foa">fadeOut Article 1</button>
+				<button type="button" class="btn btn-primary" id="fta">fadeToggle Article 2</button>
+				<button type="button" class="btn btn-primary" id="ce">Change EVERYTHING!</button>
+				<button type="button" class="btn btn-primary" id="uce">Rollback EVERYTHING!</button>
+				</div>
+				<div class="col bg-warning m-2 p-3 text-light text-center">Main
+					<div style="height:400px" class="row offset-0">
+						<div class="col bg-white m-1 p-5 text-dark text-center" id="art1">Article</div>
+						<div class="col bg-white m-1 p-5 text-dark text-center" id="art2" value="Article">Article</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col bg-success m-2 p-3 text-light text-center">Footer</div>
+			</div>
+		</div>
+   </body>
+</html>
