@@ -1,0 +1,30 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+img{
+	display: inline-block;
+}
+div{
+	display: inline-block;	
+}
+ul{
+	padding-left: 25px;
+}
+.container{
+	vertical-align: top;
+	min-width:840px;
+}
+#placeholder{
+	min-width: 580px;
+	min-height: 500px;
+	max-width: calc(100% - 280px);
+}
+#dex{
+	min-width: 200px;
+	min-height: 385px;	
+	border: 10px solid red;
+	padding: 15px;
+	text-align: center-left;
+	vertical-align: top;
+}
