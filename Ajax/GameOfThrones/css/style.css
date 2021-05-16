@@ -1,0 +1,37 @@
+*{
+	
+}
+
+img{
+	margin: 20px;
+	max-width:315px;
+	max-height:315px;
+	width: auto;
+	height: auto;
+}
+h1,h4,p{
+	padding: 0px 30px 0px 30px;	
+	
+}
+.bold{
+	font-style: bold;
+}
+.houseName{
+	margin-top: -48px;
+}
+.houseN{
+	margin-top: -30px;
+}
+#house{
+	background-color: white;
+}
+#housebanner{
+	text-align: center;
+}
+#dex{
+	
+	border: 5px solid black;
+	width: 720px;
+	margin: auto;
+	text-align: justify;
+}
