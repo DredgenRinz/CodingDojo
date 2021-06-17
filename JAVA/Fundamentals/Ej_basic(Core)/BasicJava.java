@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class BasicJava{
-	public void printTo255(){
+	public void printTo(){
 		for(int i = 0; i < 256; i++){
 			System.out.println("Imprimiendo, el número es " + i + ";");
 		}
@@ -54,6 +54,9 @@ public class BasicJava{
 			if(i % 2 != 0){
 				odds.add(i);
 			}
+		}
+		for(int i = 0; i < odds.size(); i++){
+			System.out.println("El primo es " + odds.get(i));
 		}
 	}
 	
@@ -115,6 +118,18 @@ public class BasicJava{
 		}
 		
 		return arrayA;
+	}
+	
+	public void showmmp(int [] arrayA){
+		System.out.println("El máximo es: " + arrayA[0]);
+		System.out.println("El mínimo es: " + arrayA[1]);
+		System.out.println("El promedio es: " + arrayA[2]);
+	}
+	
+	public void show(int [] alfa){
+		for (int i = 0; i < alfa.length; i++){
+			System.out.println("El número en la pos " + i + " es " + alfa[i] + ".");
+		}
 	}
 	
 }
