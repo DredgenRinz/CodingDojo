@@ -26,4 +26,4 @@ public class main{
 		System.out.println("Los Strings generados son: ");
 		metods.randStringList();
 	}
-}()
+}
