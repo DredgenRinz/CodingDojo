@@ -4,6 +4,7 @@ public class Human{
     protected int strength = 3;
     protected int stealth = 3;
     protected int intelligence = 3;
+    protected int samurais = 0;
 
     public void attackHuman(Human h){
         h.receiveDMG(this.strength);
@@ -15,6 +16,8 @@ public class Human{
     public int showHealth(){
         return this.health;
     }
-
+    public void receiveHeal(int h){
+        this.health += h;
+    }
 
 }
