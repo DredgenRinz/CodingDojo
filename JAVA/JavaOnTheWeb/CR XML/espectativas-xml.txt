@@ -1,0 +1,20 @@
+<display-name> 
+Nombre del proyecto
+
+<servlet>
+Conjunto que detalla información del servlet
+
+<servlet-name>
+nombre del servlet
+
+<servlet-class>
+referencia de la clase a utilizar
+
+<servlet-mapping>
+Conjunto que detalla información del archivo de mapping
+
+<url-pattern>
+Dirección url que utiliza
+
+<welcome-file>
+Referencia a la dirección html a utilizar

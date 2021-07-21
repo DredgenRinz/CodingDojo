@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<indice-restaurant>
+	<comidas>
+		<desayunos>
+			<option-1>
+				<name>Huevo Frito con café</name>
+				<descriptor>Huevo Frito de campo con café Nescafé</descriptor>
+				<price>$1.500</price>
+			</option-1>
+			<option-2>
+				<name>Huevo Frito con milo</name>
+				<descriptor>Huevo Frito de campo con Milo (4 cucharadas)</descriptor>
+				<price>$1.500</price>
+			</option-2>
+		</desayunos>
+		<almuerzos>
+			<option-1>
+				<name>Porotos con riendas</name>
+				<descriptor>Porotos calentitos, con ensalada, jugo y postre</descriptor>
+				<price>$3.500</price>
+			</option-1>
+			<option-2>
+				<name>Tallarines con salsa y bolognesa</name>
+				<descriptor>Tallarines con salsa encima y bolognesa, con ensalada, jugo y postre</descriptor>
+				<price>$3.500</price>
+			</option-2>
+		</almuerzos>
+	</comidas>
+</indice-restaurant>
